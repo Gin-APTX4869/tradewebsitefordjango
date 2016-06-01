@@ -1,0 +1,19 @@
+{% load staticfiles %}
+{% include 'include/head.html' %}
+  <body>
+    {% include 'include/nav.html' %}
+	{% include 'include/sub_nav.html' %}
+      <div class="grid-example col s12">
+		{% block banner %}
+		{% endblock %}
+      </div>
+	<div class="row">
+		<div class="col s10 offset-s1 grid-example">
+			{% block content %}
+			{% endblock %}
+		</div>
+	</div>
+    {% include 'include/footer.html' %}
+    {% include 'include/script.html' %}
+  </body>
+</html>

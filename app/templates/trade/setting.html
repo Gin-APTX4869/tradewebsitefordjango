@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="row">
+      <div class="col s12 m4 l3"> <!-- Note that "m4 l3" was added -->
+      {% include 'include/settings_side.html' with active='profile' %}
+      </div>
+
+      <div class="col s12 m8 l9"> <!-- Note that "m8 l9" was added -->
+        <form action="{% url 'trade:setting' profile.user.id %}" method="post">
+            {% csrf_token %}
+            {{ form|crispy }}
+        <input type="submit" class="btn btn-block btn-raised btn-info" value="保存修改" />
+        </form>
+      </div>
+    </div>
+{% endblock %}

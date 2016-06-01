@@ -1,0 +1,63 @@
+html{
+	position: relative;
+}
+body{
+	background-color: #eee;
+	min-height: 100vh;
+	margin-bottom: 182px;
+}
+nav{
+	height: 60px;
+	line-height: 60px;
+}
+footer{
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+}
+/*sub_nav*/
+.sub_nav{
+	background-color: #fff;
+	height: 45px;
+	line-height: 36px;
+	text-align: center;
+}
+.sub_nav a{
+	display: inline-block;
+	padding: 6px;
+	color: #000;
+}
+.slides{
+	height: 316px !important;
+}
+.slider{
+	height: 348px !important;
+}
+.teb{
+	margin-top: 30px;
+}
+select{
+	display: block;
+}
+.slider .indicators .indicator-item.active{
+	background-color: #EC407A;
+}
+.card-content a{
+	color: #26C6DA;
+}
+.card-content span{
+	color: #EC407A;
+}
+.collection a.collection-item{
+	color: #26C6DA;
+}
+.collection .collection-item.active{
+	background-color: #EC407A;
+	color: #fff;
+}
+.tabs .tab a{
+	color: #EC407A;
+}
+.tabs .indicator{
+	background-color: #EC407A;
+}

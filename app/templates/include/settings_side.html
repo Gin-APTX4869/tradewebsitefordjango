@@ -1,0 +1,6 @@
+   <div class="collection">
+   	<a href="{{ user.profile.get_absolute_url }}" class="collection-item{% if active == 'center' %} active{% endif %}">个人资料</a>
+    <a href="{% url 'trade:setting' user.id %}" class="collection-item{% if active == 'profile' %} active{% endif %}">资料修改</a>
+    <a href="{% url 'avatar_change' %}"  class="collection-item{% if active == 'avatar' %} active{% endif %}">修改头像</a>
+    <a href="{% url 'trade:mygoods' %}" class="collection-item{% if active == 'mygoods' %} active{% endif %}">我的物品</a>
+   </div>

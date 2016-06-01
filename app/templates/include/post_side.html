@@ -1,0 +1,4 @@
+   <div class="collection">
+    <a href="{% url 'trade:post' %}"  class="collection-item{% if active == 'goods' %} active{% endif %}">发布物品</a>
+    <a href="{% url 'trade:seek' %}" class="collection-item{% if active == 'seek' %} active{% endif %}">发布需求</a>
+   </div>

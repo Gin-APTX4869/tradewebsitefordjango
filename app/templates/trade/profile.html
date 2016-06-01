@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load avatar_tags %}
+
+{% block content %}
+<div class="row">
+    <div class="col s12 m4 l3">
+        {% include 'include/settings_side.html' with active='center' %}
+    </div>
+    <div class="col s12 m8 l9">
+     <table class="table">
+        <thead>
+          <tr>
+            <th data-field="avatar">头像</th>
+            <th data-field="id">姓名</th>
+            <th data-field="wei">微信</th>
+            <th data-field="age">年龄</th>
+            <th data-field="birthday">生日</th>
+            <th data-field="location">住址</th>
+            <th data-field="grade">年级</th>
+            <th data-field="college">所在学院</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>{% avatar user %}</td>
+            <td>{{ profile.nickname }}</td>
+            <td>{{ profile.wei }}</td>
+            <td>{{ profile.age }}</td>
+            <td>{{ profile.birthday }}</td>
+            <td>{{ profile.location }}</td>
+            <td>{{ profile.grade }}</td>
+            <td>{{ profile.college }}</td>
+        </tbody>
+        </table>
+        个人简介：{{ profile.bio }}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load avatar_tags %}
+{% block content %}
+<div class="row teb">
+  <div class="col s12">
+  <ul class="tabs">
+    <li class="tab col s3"><a href="#test1">失误招领</a></li>
+    <li class="tab col s3"><a href="#test2">求购信息</a></li>
+  </ul>
+  </div>
+  <div id="test1" class="col s12">
+  {% for lost_found in lost_found %}
+    <ul class="collection">
+       <li class="collection-item avatar" style="line-height: 32px;">
+         <span class="title">招领：{{ lost_found.name }}</span>
+         <p>{{ lost_found.description }}</p>
+         <a href="#!" class="secondary-content"><i class="mdi-action-grade"></i></a>
+       </li>
+    </ul>
+  {% endfor %}
+  </div>
+  <div id="test2" class="col s12">
+  {% for demand in demand %}
+    <ul class="collection">
+       <li class="collection-item avatar" style="line-height: 32px;">
+         <span class="title">求购：{{ demand.name }}</span>
+         <p>{{ demand.description }}</p>
+         <a href="#!" class="secondary-content"><i class="mdi-action-grade"></i></a>
+       </li>
+    </ul>
+  {% endfor %}
+  </div>
+</div>
+{% endblock %}

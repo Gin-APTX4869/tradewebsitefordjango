@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="row teb">
+      <div class="col s6"> <!-- Note that "m4 l3" was added -->
+      <img style="width:500px" src="{{ goods_detail.image.url }}" alt="">
+      </div>
+      <div class="col s6"> <!-- Note that "m8 l9" was added -->
+        <ul class="collection">
+          <li class="collection-item">物品名称：{{ goods_detail.goods_title }}</li>
+          <li class="collection-item">价格：{{ goods_detail.goods_price }}</li>
+          <li class="collection-item">类别：{{ goods_detail.category }}</li>
+          <li class="collection-item">发布时间：{{ goods_detail.timestamp }}</li>
+          <li class="collection-item">卖家描述：{{ goods_detail.description }}</li>
+          <li class="collection-item">发布者：{{ goods_detail.user }}</li>
+          <p>{% include 'include/share.html' %}</p>
+        </ul>
+      </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load bootstrap_pagination %}
+{% block banner %}
+  <div class="slider">
+    <ul class="slides">
+       <li>
+         <img src="{% static 'image/banner-01.png' %}"> <!-- random image -->
+       </li>
+       <li>
+         <img src="{% static 'image/banner-02.png' %}"> <!-- random image -->
+       </li>
+       <li>
+         <img src="{% static 'image/banner-03.png' %}"> <!-- random image -->
+       </li>
+    </ul>
+  </div>
+{% endblock %}
+{% block content %}
+<h5 class="center-align" style="margin: 20px 0;">最新上架</h5>
+<div class="divider"></div>
+  {% for g in goods %}
+  <div class="col s12 m6 l4">
+    <div class="card Large">
+       <div class="card-image waves-effect waves-block waves-light">
+         <img class="activator tooltipped" src="{{ g.image.url }}" data-tooltip="查看人数：{{ g.view_count }}" style="width: 345px;height: 344px;">
+       </div>
+       <div class="card-content">
+         <span class="card-title activator grey-text text-darken-4">{{ g.user }}<i
+         class="mdi-navigation-more-vert right"></i></span>
+         <p><a href="#">{{ g.goods_title }}</a></p>
+         <p><span>价格：¥{{ g.goods_price }}</span></p>
+
+       </div>
+       <div class="card-reveal">
+         <span class="card-title grey-text text-darken-4">{{ g.goods_title }}<i class="mdi-navigation-close right"></i></span>
+         <p>{{ g.description }}</p>
+         <a class="pull-right" href="{% url 'trade:detail' g.id %}" style="color: #26C6DA;">查看详情</a>
+       </div>
+    </div>
+          {% if g.paginator.num_pages > 1 %}
+          <hr>
+          {% bootstrap_paginate g range=10 %}
+          {% endif %}
+  </div>
+  {% endfor %}
+{% endblock %}

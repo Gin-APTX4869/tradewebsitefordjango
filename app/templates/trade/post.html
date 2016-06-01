@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="row teb">
+      <div class="col s12 m4 l3"> <!-- Note that "m4 l3" was added -->
+      {% include 'include/post_side.html' with active='goods' %}
+      </div>
+      <div class="col s12 m8 l9"> <!-- Note that "m8 l9" was added -->
+      	<form method="POST" action="" enctype="multipart/form-data">{% csrf_token %}
+			{{form.as_p}}
+			<input type="submit" class="waves-effect waves-light btn pink lighten-1" value="提交">
+		</form>
+      </div>
+    </div>
+{% endblock %}

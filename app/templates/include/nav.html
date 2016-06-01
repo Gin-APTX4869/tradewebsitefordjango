@@ -1,0 +1,27 @@
+{% load staticfiles %}
+<!-- Dropdown Structure -->
+  <ul id="dropdown1" class="dropdown-content">
+    <li><a href="{{ user.profile.get_absolute_url }}">个人资料</a></li>
+    <li><a href="{% url 'trade:mygoods' %}">我的物品</a></li>
+    <li class="divider"></li>
+    <li><a href="{% url 'auth_logout' %}">登出</a></li>
+  </ul>
+  <nav>
+    <div class="nav-wrapper cyan lighten-1">
+      <a href="{% url 'trade:home' %}" class="brand-logo" style="margin-left:32px;">闲置汇</a>
+      <ul class="right hide-on-med-and-down" style="height: 60px;">
+        {% if request.user.is_superuser %}
+        <li><a href="{% url 'admin:index' %}">管理员</a></li>
+        {% endif %} 
+        {% if request.user.is_authenticated %}
+        <li><a href="{% url 'trade:post' %}">我要发布</a></li>
+        <li><a href="{% url 'trade:setting' user.id %}">设置</a></li> 
+        <!-- Dropdown Trigger -->
+        <li><a class="dropdown-button" href="#!" data-activates="dropdown1" style="height: 60px;">用户中心<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
+        {% else %}
+        <li><a href="{% url 'auth_login' %}">登陆</a></li>
+        <li><a href="{% url 'registration_register' %}">注册</a></li>
+        {% endif %}
+      </ul>
+    </div>
+  </nav>
